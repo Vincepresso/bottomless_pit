@@ -7,17 +7,23 @@ extends Path3D
 @export var poop_spawn_rate_min = 0.25
 
 var poop_spawn_rate = 0.0
+var spawning = false
 
 @onready var food_spawn_timer = $FoodSpawnTimer
 @onready var poop_spawn_timer = $PoopSpawnTimer
 @onready var spawn_point = $SpawnPoint
 
-func _ready():
-	food_spawn_timer.start(food_spawn_rate)
-	poop_spawn_rate = poop_spawn_rate_max
-	poop_spawn_timer.start(poop_spawn_rate)
+func _process(delta):
+	if not spawning and GameManager.game_start:
+		spawning = true
+		start()
 
-func _on_food_spawn_timer_timeout():
+func start():
+	spawn_food()
+	poop_spawn_rate = poop_spawn_rate_max
+	spawn_poop()
+
+func spawn_food():
 	if not GameManager.game_over:
 		var food = pantry.pick_random().instantiate() as Food
 		spawn_point.progress_ratio = randf()
@@ -25,7 +31,7 @@ func _on_food_spawn_timer_timeout():
 		food.init(spawn_point.transform.origin)
 		food_spawn_timer.start(food_spawn_rate)
 
-func _on_poop_spawn_timer_timeout():
+func spawn_poop():
 	if not GameManager.game_over:
 		var percent_to_full = clampf(GameManager.total_score / GameManager.score_soft_cap, 0.0, 1.0)
 		var poop_spawn_rate_delta = poop_spawn_rate_max - poop_spawn_rate_min
@@ -36,6 +42,12 @@ func _on_poop_spawn_timer_timeout():
 		poop.init(spawn_point.transform.origin)
 		poop_spawn_timer.start(poop_spawn_rate)
 		GameManager.poop_spawn_rate = poop_spawn_rate
+
+func _on_food_spawn_timer_timeout():
+	spawn_food()
+
+func _on_poop_spawn_timer_timeout():
+	spawn_poop()
 
 func _on_despawn_point_area_entered(area):
 	if area.is_in_group("food") or area.is_in_group("poop"):

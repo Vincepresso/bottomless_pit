@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://db50in5fmx705"]
+[gd_scene load_steps=6 format=3 uid="uid://db50in5fmx705"]
 
 [ext_resource type="Script" path="res://common/health_ui/health_ui.gd" id="1_5mnq3"]
 [ext_resource type="Texture2D" uid="uid://c763jc86ww2aa" path="res://assets/images/barf_icon.png" id="1_uhgp8"]
 [ext_resource type="Texture2D" uid="uid://bcb78p86gv8s4" path="res://assets/images/gui/png/progress_frame_long.png" id="2_01u4o"]
-[ext_resource type="Texture2D" uid="uid://26n2m44hyif4" path="res://assets/images/gui/png/progress_bar_long.png" id="4_3yk3c"]
+[ext_resource type="Texture2D" uid="uid://dntl0dfuwr1c8" path="res://assets/images/food_icon.png" id="3_n6jkj"]
+[ext_resource type="Texture2D" uid="uid://dq5ai5bhjojxr" path="res://assets/images/gui/png/progress_bar_white_long.png" id="4_njoxv"]
 
 [node name="HealthUI" type="VBoxContainer"]
 offset_right = 813.0
@@ -12,6 +13,32 @@ scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(20, 0)
 size_flags_horizontal = 4
 script = ExtResource("1_5mnq3")
+
+[node name="HungerContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ProgressBarTexture" type="TextureRect" parent="HungerContainer"]
+layout_mode = 2
+texture = ExtResource("2_01u4o")
+
+[node name="ProgressBarIcon" type="TextureRect" parent="HungerContainer/ProgressBarTexture"]
+layout_mode = 2
+offset_left = 23.3333
+offset_top = 16.6667
+offset_right = 123.333
+offset_bottom = 109.667
+size_flags_horizontal = 0
+texture = ExtResource("3_n6jkj")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="HungerContainer/ProgressBarTexture"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 33.3333
+offset_right = 760.0
+offset_bottom = 114.333
+value = 100.0
+texture_progress = ExtResource("4_njoxv")
+tint_progress = Color(0.256576, 0.681638, 0.57532, 1)
 
 [node name="VomitContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -31,9 +58,10 @@ texture = ExtResource("1_uhgp8")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="VomitContainer/ProgressBarTexture"]
 layout_mode = 0
-offset_left = 118.4
-offset_top = 34.0
-offset_right = 469.4
-offset_bottom = 115.0
+offset_left = 120.0
+offset_top = 33.3333
+offset_right = 760.0
+offset_bottom = 114.333
 value = 100.0
-texture_progress = ExtResource("4_3yk3c")
+texture_progress = ExtResource("4_njoxv")
+tint_progress = Color(1, 0.257206, 0.603535, 1)

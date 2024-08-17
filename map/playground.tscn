@@ -51,13 +51,13 @@ use_collision = true
 size = Vector3(1, 1, 13)
 material = ExtResource("2_0b83d")
 
-[node name="LeftWall" type="CSGBox3D" parent="Map"]
+[node name="LeftWall" type="CSGBox3D" parent="Map" groups=["wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 7.0202)
 use_collision = true
 size = Vector3(1, 20, 1)
 material = ExtResource("6_dfmvc")
 
-[node name="RightWall" type="CSGBox3D" parent="Map"]
+[node name="RightWall" type="CSGBox3D" parent="Map" groups=["wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -7)
 use_collision = true
 size = Vector3(1, 20, 1)

@@ -8,7 +8,6 @@ extends VBoxContainer
 @onready var belly_scale_value = $GridContainer/belly_scale_value
 @onready var player_speed_value = $GridContainer/player_speed_value
 
-
 func _process(delta):
 	fps_value.text = str(Engine.get_frames_per_second())
 	score_value.text = str(GameManager.total_score)
