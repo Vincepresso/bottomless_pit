@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2lurdn16604e"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_ec35x"]
+[ext_resource type="PackedScene" uid="uid://csw74er6bxpeh" path="res://assets/models/foods/burger.glb" id="2_5wrnh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6aoy"]
+size = Vector3(1, 0.32959, 0.475952)
+
+[node name="Burger" instance=ExtResource("1_ec35x")]
+score = 2.0
+
+[node name="burger" parent="Visual" index="0" instance=ExtResource("2_5wrnh")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 0.0444183, 0.00264928)
+shape = SubResource("BoxShape3D_c6aoy")

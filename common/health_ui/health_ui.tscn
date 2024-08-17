@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://db50in5fmx705"]
+
+[ext_resource type="Script" path="res://common/health_ui/health_ui.gd" id="1_5mnq3"]
+[ext_resource type="Texture2D" uid="uid://c763jc86ww2aa" path="res://assets/images/barf_icon.png" id="1_uhgp8"]
+[ext_resource type="Texture2D" uid="uid://bcb78p86gv8s4" path="res://assets/images/gui/png/progress_frame_long.png" id="2_01u4o"]
+[ext_resource type="Texture2D" uid="uid://26n2m44hyif4" path="res://assets/images/gui/png/progress_bar_long.png" id="4_3yk3c"]
+
+[node name="HealthUI" type="VBoxContainer"]
+offset_right = 813.0
+offset_bottom = 145.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(20, 0)
+size_flags_horizontal = 4
+script = ExtResource("1_5mnq3")
+
+[node name="VomitContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ProgressBarTexture" type="TextureRect" parent="VomitContainer"]
+layout_mode = 2
+texture = ExtResource("2_01u4o")
+
+[node name="ProgressBarIcon" type="TextureRect" parent="VomitContainer/ProgressBarTexture"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 112.0
+offset_bottom = 124.0
+size_flags_horizontal = 0
+texture = ExtResource("1_uhgp8")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="VomitContainer/ProgressBarTexture"]
+layout_mode = 0
+offset_left = 118.4
+offset_top = 34.0
+offset_right = 469.4
+offset_bottom = 115.0
+value = 100.0
+texture_progress = ExtResource("4_3yk3c")

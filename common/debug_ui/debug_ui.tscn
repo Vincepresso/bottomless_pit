@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://djvgknl7v1pl"]
+
+[ext_resource type="Script" path="res://common/debug_ui/debug_ui.gd" id="1_h1inl"]
+
+[node name="DebugUI" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_h1inl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Debug UI"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="fps_label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "FPS"
+
+[node name="fps_value" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "999.99"
+
+[node name="score_label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Score"
+
+[node name="score_value" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "999.99"
+
+[node name="food_eaten_label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Food Eaten"
+
+[node name="food_eaten_value" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "999.99"
+
+[node name="poop_eaten_label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Poop Eaten"
+
+[node name="poop_eaten_value" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "999.99"
+
+[node name="poop_spawn_rate_label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Poop Spawn Rate"
+
+[node name="poop_spawn_rate_value" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "999.99"
+
+[node name="belly_scale_label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Belly Scale
+"
+
+[node name="belly_scale_value" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "999.99"
+
+[node name="player_speed_label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Player Speed
+"
+
+[node name="player_speed_value" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "999.99"

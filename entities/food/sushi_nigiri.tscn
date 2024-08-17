@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh2jlgd7pu3nu"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_5i413"]
+[ext_resource type="PackedScene" uid="uid://c2p07voo73mm4" path="res://assets/models/foods/sushi_nigiri.glb" id="2_rfyv4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4eocm"]
+size = Vector3(0.600159, 0.430298, 0.483063)
+
+[node name="SushiNigiri" instance=ExtResource("1_5i413")]
+score = 1.0
+
+[node name="sushi_nigiri" parent="Visual" index="0" instance=ExtResource("2_rfyv4")]
+transform = Transform3D(0.560229, 0.323448, -0.762578, -0.5, 0.866025, 1.85662e-08, 0.660412, 0.381289, 0.646896, 0, 0, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0327149, 0.0853728, -0.00206569)
+shape = SubResource("BoxShape3D_4eocm")

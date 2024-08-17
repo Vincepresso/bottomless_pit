@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://m4eqlrlv6nv0"]
+
+[ext_resource type="Script" path="res://common/spawner/spawner.gd" id="1_4f5pq"]
+[ext_resource type="PackedScene" uid="uid://bexb6nf80s4w8" path="res://entities/food/steak.tscn" id="2_ld5ch"]
+
+[sub_resource type="Curve3D" id="Curve3D_j1l3a"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, -6),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_h6no1"]
+radius = 0.125
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arbi3"]
+albedo_color = Color(1.92523e-06, 0.673662, 0.641084, 1)
+
+[node name="Spawner" type="Path3D"]
+curve = SubResource("Curve3D_j1l3a")
+script = ExtResource("1_4f5pq")
+pantry = Array[PackedScene]([ExtResource("2_ld5ch")])
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+progress = 12.0
+
+[node name="Debugger" type="MeshInstance3D" parent="PathFollow3D"]
+mesh = SubResource("SphereMesh_h6no1")
+surface_material_override/0 = SubResource("StandardMaterial3D_arbi3")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

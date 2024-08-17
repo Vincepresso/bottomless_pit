@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceuw0045gctd3"]
+
+[ext_resource type="Script" path="res://entities/poop/poop.gd" id="1_a18h4"]
+[ext_resource type="PackedScene" uid="uid://qx3vsjsf701p" path="res://assets/models/poop/poop.glb" id="2_wvj8q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1t86t"]
+size = Vector3(1, 0.257, 0.375)
+
+[node name="Poop" type="Area3D" groups=["poop"]]
+script = ExtResource("1_a18h4")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="poop" parent="Visual" instance=ExtResource("2_wvj8q")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0789698, 0)
+light_color = Color(1, 0.0167553, 0.262508, 1)
+omni_range = 2.0
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214386, 0.127441, 0.000991821)
+shape = SubResource("BoxShape3D_1t86t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

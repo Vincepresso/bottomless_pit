@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfc5tgxjmwdnk"]
+
+[ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="1_4ot4n"]
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_06e1l"]
+[ext_resource type="PackedScene" uid="uid://dad1joaecjjay" path="res://assets/models/ybot.glb" id="1_fjqxv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tix6w"]
+radius = 0.231513
+height = 1.78443
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_06e1l")
+
+[node name="Skin" type="Node3D" parent="."]
+script = ExtResource("1_4ot4n")
+
+[node name="Character" parent="Skin" instance=ExtResource("1_fjqxv")]
+transform = Transform3D(1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, -1, 0, 0, 0)
+
+[node name="GeneralSkeleton" parent="Skin/Character/ybot" index="0"]
+bones/0/position = Vector3(-3.30172e-07, 0.997919, 5.16213e-07)
+bones/0/rotation = Quaternion(-6.11813e-11, -2.68615e-15, -8.52561e-17, 1)
+bones/1/rotation = Quaternion(-3.63534e-11, 2.25778e-13, 3.63793e-12, 1)
+bones/2/rotation = Quaternion(2.77556e-17, -4.54747e-13, 0, 1)
+bones/3/rotation = Quaternion(7.45058e-09, 1.13687e-12, -2.84217e-14, 1)
+bones/4/rotation = Quaternion(4.33681e-19, 1.42109e-14, 3.63798e-12, 1)
+bones/7/rotation = Quaternion(0.500032, 0.499968, 0.500032, -0.499968)
+bones/8/rotation = Quaternion(-1.2666e-06, 1, 1.90884e-05, 2.08616e-07)
+bones/9/rotation = Quaternion(4.21468e-08, -0.707107, 4.21468e-08, 0.707107)
+bones/10/rotation = Quaternion(3.48336e-10, 0.707107, 3.48336e-10, 0.707107)
+bones/11/rotation = Quaternion(-0.214187, 0.673887, 0.214187, 0.673887)
+bones/12/rotation = Quaternion(-2.98023e-08, 4.47035e-08, 2.98023e-08, 1)
+bones/13/rotation = Quaternion(-4.47035e-08, 4.47035e-08, 0, 1)
+bones/14/position = Vector3(-0.0154676, 0.030828, 0.00284099)
+bones/15/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/16/rotation = Quaternion(0, 5.96046e-08, -4.47035e-08, 1)
+bones/17/rotation = Quaternion(0, 0, 5.96046e-08, 1)
+bones/18/position = Vector3(9.23298e-08, 0.03078, -2.82572e-06)
+bones/19/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/20/rotation = Quaternion(-2.98023e-08, 1.49012e-08, 5.96046e-08, 1)
+bones/21/rotation = Quaternion(-2.98023e-08, 0, 0, 1)
+bones/23/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/24/rotation = Quaternion(-2.98023e-08, 1.49012e-08, 5.96046e-08, 1)
+bones/25/rotation = Quaternion(1.49012e-08, -1.49012e-08, 0, 1)
+bones/26/position = Vector3(8.17724e-09, 0.0366012, -3.16597e-06)
+bones/27/rotation = Quaternion(-2.74181e-06, 5.96046e-08, -0.000141144, 1)
+bones/28/rotation = Quaternion(6.16908e-06, 1.04308e-07, 0.000368342, 1)
+bones/29/rotation = Quaternion(-3.54648e-06, -2.98023e-08, -0.000229612, 1)
+bones/31/rotation = Quaternion(0.499968, -0.500031, -0.499969, -0.500032)
+bones/32/rotation = Quaternion(-5.06639e-07, 1, -1.99974e-05, -2.08616e-07)
+bones/33/rotation = Quaternion(-3.16101e-08, 0.707107, -3.16101e-08, 0.707107)
+bones/34/rotation = Quaternion(3.36058e-10, -0.707107, -3.36058e-10, 0.707107)
+bones/35/rotation = Quaternion(-0.214187, -0.673887, -0.214187, 0.673887)
+bones/36/rotation = Quaternion(2.98023e-08, 1.49012e-08, 2.22045e-16, 1)
+bones/37/rotation = Quaternion(-1.49012e-08, 1.49012e-08, -5.96046e-08, 1)
+bones/39/rotation = Quaternion(7.45058e-08, 1.49012e-08, 2.98023e-08, 1)
+bones/40/rotation = Quaternion(-1.49012e-08, 4.47035e-08, 5.96046e-08, 1)
+bones/41/rotation = Quaternion(4.47035e-08, 0, 5.96046e-08, 1)
+bones/42/position = Vector3(5.20452e-08, 0.03078, 2.52902e-06)
+bones/43/rotation = Quaternion(7.45058e-08, 1.49012e-08, 2.98023e-08, 1)
+bones/44/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/45/rotation = Quaternion(-2.98023e-08, 2.98023e-08, 2.98023e-08, 1)
+bones/46/position = Vector3(3.33792e-07, 0.0368019, 3.004e-06)
+bones/47/rotation = Quaternion(7.45058e-08, 1.49012e-08, 2.98023e-08, 1)
+bones/48/rotation = Quaternion(1.49012e-08, 1.49012e-08, 4.47035e-08, 1)
+bones/49/rotation = Quaternion(0, 0, 1.49012e-08, 1)
+bones/50/position = Vector3(1.33059e-08, 0.0366011, 3.11884e-06)
+bones/51/rotation = Quaternion(7.45058e-08, 1.49012e-08, 2.98023e-08, 1)
+bones/52/rotation = Quaternion(1.49012e-07, -8.9407e-08, -1.055e-05, 1)
+bones/53/rotation = Quaternion(-4.47035e-08, 5.96046e-08, 1.05351e-05, 1)
+bones/54/position = Vector3(2.0928e-07, 0.0292388, 2.51538e-06)
+bones/55/rotation = Quaternion(8.25365e-09, 1.02958e-05, 1, -8.79629e-08)
+bones/56/rotation = Quaternion(1.16415e-09, 1, -1.97911e-05, -5.47079e-08)
+bones/57/rotation = Quaternion(-4.11591e-11, 0.707107, -0.707107, 1.93447e-09)
+bones/58/rotation = Quaternion(6.58544e-10, 1, 5.96046e-08, -1.97563e-09)
+bones/60/rotation = Quaternion(5.43384e-12, 5.26843e-10, 1, -2.1464e-10)
+bones/61/rotation = Quaternion(-6.98492e-10, 1, 4.65661e-10, -3.81988e-11)
+bones/62/rotation = Quaternion(2.72679e-09, 0.707107, -0.707107, -3.85866e-09)
+bones/63/rotation = Quaternion(8.23181e-10, 1, 0, -2.79881e-09)
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90256, 0)
+shape = SubResource("CapsuleShape3D_tix6w")
+
+[editable path="Skin/Character"]

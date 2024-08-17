@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://dyswt0n8ipcus"]
+
+[ext_resource type="PackedScene" uid="uid://bfc5tgxjmwdnk" path="res://entities/player/player.tscn" id="1_h300t"]
+[ext_resource type="Material" uid="uid://bik1wraoymwxf" path="res://assets/materials/grass.tres" id="2_0b83d"]
+[ext_resource type="AudioStream" uid="uid://dietkdoa810mk" path="res://assets/music/cartoon_bgm.wav" id="2_5ly5r"]
+[ext_resource type="Texture2D" uid="uid://bkq78dhg4pbi3" path="res://assets/images/skybox.png" id="2_44er7"]
+[ext_resource type="PackedScene" uid="uid://m4eqlrlv6nv0" path="res://common/spawner/spawner.tscn" id="2_nddl6"]
+[ext_resource type="PackedScene" uid="uid://djvgknl7v1pl" path="res://common/debug_ui/debug_ui.tscn" id="4_gaknf"]
+[ext_resource type="Material" uid="uid://6jshbigw6c0c" path="res://assets/materials/brick.tres" id="6_dfmvc"]
+[ext_resource type="PackedScene" uid="uid://db50in5fmx705" path="res://common/health_ui/health_ui.tscn" id="7_lhg3k"]
+[ext_resource type="PackedScene" uid="uid://b5k7di7tgogd5" path="res://common/score_ui/score_ui.tscn" id="8_87bwb"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lxs8p"]
+panorama = ExtResource("2_44er7")
+
+[sub_resource type="Sky" id="Sky_82mtm"]
+sky_material = SubResource("PanoramaSkyMaterial_lxs8p")
+
+[sub_resource type="Environment" id="Environment_klfo8"]
+background_mode = 2
+background_color = Color(0.521266, 0.486947, 0.786726, 1)
+sky = SubResource("Sky_82mtm")
+ambient_light_source = 2
+ambient_light_color = Color(0.662452, 0.662452, 0.662452, 1)
+ambient_light_energy = 0.75
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Playground" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_klfo8")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433017, 0.250001, 0.250002, 0.0580113, 0.966506, -0.433016, 0.899517, 0.0580159, 0, 8, 14)
+light_color = Color(0.898679, 0.89509, 0.834638, 1)
+light_energy = 0.5
+light_indirect_energy = 0.5
+shadow_enabled = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_5ly5r")
+volume_db = -15.0
+autoplay = true
+
+[node name="Map" type="Node" parent="."]
+
+[node name="Ground" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(1, 1, 13)
+material = ExtResource("2_0b83d")
+
+[node name="LeftWall" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 7.0202)
+use_collision = true
+size = Vector3(1, 20, 1)
+material = ExtResource("6_dfmvc")
+
+[node name="RightWall" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -7)
+use_collision = true
+size = Vector3(1, 20, 1)
+material = ExtResource("6_dfmvc")
+
+[node name="Player" parent="." instance=ExtResource("1_h300t")]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.37107, 3.93834, 0)
+current = true
+
+[node name="DebugCamera" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.3711, 10.9383, 0)
+
+[node name="Spawner" parent="." instance=ExtResource("2_nddl6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DebugUI" parent="UI" instance=ExtResource("4_gaknf")]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 63.0
+offset_right = 252.0
+offset_bottom = 212.0
+grow_horizontal = 2
+
+[node name="HealthUI" parent="UI" instance=ExtResource("7_lhg3k")]
+
+[node name="ScoreUI" parent="UI" instance=ExtResource("8_87bwb")]

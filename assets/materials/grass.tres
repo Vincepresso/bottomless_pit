@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://bik1wraoymwxf"]
+
+[ext_resource type="Texture2D" uid="uid://cuj36rnis0h15" path="res://assets/textures/Grass004_1K-JPG_Color.jpg" id="1_5gcco"]
+[ext_resource type="Texture2D" uid="uid://p6fu0a6dop72" path="res://assets/textures/Grass004_1K-JPG_AmbientOcclusion.jpg" id="2_to3d1"]
+[ext_resource type="Texture2D" uid="uid://bdj0infgpdh76" path="res://assets/textures/Grass004_1K-JPG_Displacement.jpg" id="3_vubsk"]
+[ext_resource type="Texture2D" uid="uid://rtmpo1vfi27s" path="res://assets/textures/Grass004_1K-JPG_NormalDX.jpg" id="4_banat"]
+[ext_resource type="Texture2D" uid="uid://bbxuaxq663yve" path="res://assets/textures/Grass004_1K-JPG_Roughness.jpg" id="5_1cmed"]
+
+[resource]
+albedo_texture = ExtResource("1_5gcco")
+roughness_texture = ExtResource("5_1cmed")
+normal_enabled = true
+normal_texture = ExtResource("4_banat")
+ao_enabled = true
+ao_texture = ExtResource("2_to3d1")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_vubsk")
+detail_uv_layer = 1
+detail_albedo = ExtResource("1_5gcco")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true

@@ -1,0 +1,117 @@
+[gd_scene load_steps=19 format=3 uid="uid://dahfvjokniisi"]
+
+[ext_resource type="Terrain3DStorage" uid="uid://56heffu8atxf" path="res://map/terrain/start_scene_storage.res" id="1_11hut"]
+[ext_resource type="Texture2D" uid="uid://bkq78dhg4pbi3" path="res://assets/images/skybox.png" id="1_hhpq7"]
+[ext_resource type="PackedScene" uid="uid://d06y11cyu4c1b" path="res://entities/player/player_start.tscn" id="1_nsnw6"]
+[ext_resource type="Texture2D" uid="uid://cuj36rnis0h15" path="res://assets/textures/Grass004_1K-JPG_Color.jpg" id="2_ukhyy"]
+[ext_resource type="Texture2D" uid="uid://rtmpo1vfi27s" path="res://assets/textures/Grass004_1K-JPG_NormalDX.jpg" id="3_ndnkx"]
+[ext_resource type="Material" uid="uid://cal0ws4kkir51" path="res://assets/trees/mat.tres" id="6_0ed3e"]
+[ext_resource type="Material" uid="uid://7hn25igvds42" path="res://assets/trees/twig_mat.tres" id="7_t6sj1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ewpnw"]
+panorama = ExtResource("1_hhpq7")
+
+[sub_resource type="Sky" id="Sky_6aai6"]
+sky_material = SubResource("PanoramaSkyMaterial_ewpnw")
+
+[sub_resource type="Environment" id="Environment_wdpyv"]
+background_mode = 2
+background_color = Color(0.646008, 0.798574, 0.87068, 1)
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_6aai6")
+ambient_light_source = 2
+ambient_light_color = Color(0.753968, 0.777597, 0.768755, 1)
+tonemap_exposure = 2.0
+fog_enabled = true
+fog_light_color = Color(0.402206, 0.568591, 0.720524, 1)
+fog_light_energy = 0.5
+fog_sky_affect = 0.5
+volumetric_fog_length = 10.0
+volumetric_fog_sky_affect = 0.5
+
+[sub_resource type="Gradient" id="Gradient_885rt"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_csygt"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_suns3"]
+seamless = true
+color_ramp = SubResource("Gradient_885rt")
+noise = SubResource("FastNoiseLite_csygt")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_ma3fa"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_suns3"),
+"vertex_normals_distance": 128.0
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbbiw"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_v77ij"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_pbbiw")
+generated_type = 1
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_7edrq"]
+name = "Grass"
+albedo_texture = ExtResource("2_ukhyy")
+normal_texture = ExtResource("3_ndnkx")
+uv_scale = 1.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_ammxj"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_v77ij")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_7edrq")])
+
+[node name="StartScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wdpyv")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.57769, -0.713964, -0.395638, -0.808263, 0.43268, 0.399373, -0.113953, 0.550494, -0.827026, 0, 3.5314, -0.00716829)
+shadow_enabled = true
+
+[node name="PlayerStart" parent="." instance=ExtResource("1_nsnw6")]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("1_11hut")
+material = SubResource("Terrain3DMaterial_ma3fa")
+assets = SubResource("Terrain3DAssets_ammxj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.958815, -3.57186e-09, 0.284032, 0.034851, 0.992444, 0.117647, -0.281886, 0.122701, -0.95157, -0.241202, 1.31592, -2.20959)
+
+[node name="Tree3D" type="Tree3D" parent="."]
+trunk_height = 4
+trunk_branch_length = 0.59
+trunk_branch_length_falloff = 0.89
+trunk_branch_factor = 3.45
+trunk_drop_amount = 0.088
+trunk_max_radius = 0.18
+material_trunk = ExtResource("6_0ed3e")
+material_twig = ExtResource("7_t6sj1")
