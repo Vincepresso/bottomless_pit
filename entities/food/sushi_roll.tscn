@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://1jl46b5ggn1e"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_jbjj8"]
+[ext_resource type="PackedScene" uid="uid://df7qbaomg32oq" path="res://assets/models/foods/sushi_roll.glb" id="2_g6umt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ued8p"]
+size = Vector3(1, 0.389729, 0.358076)
+
+[node name="SushiRoll" instance=ExtResource("1_jbjj8")]
+
+[node name="sushi_roll" parent="Visual" index="1" instance=ExtResource("2_g6umt")]
+transform = Transform3D(-5.46392e-08, -1.25, -5.46392e-08, 0, -5.46392e-08, 1.25, -1.25, 5.46392e-08, 2.38836e-15, 0, 0, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, -0.00322938, 0.00100988)
+shape = SubResource("BoxShape3D_ued8p")

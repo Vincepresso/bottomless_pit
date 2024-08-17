@@ -10,7 +10,7 @@ size = Vector3(1, 0.32959, 0.475952)
 score = 2.0
 
 [node name="burger" parent="Visual" index="0" instance=ExtResource("2_5wrnh")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.282869, 0.0999249, 0, -0.0999249, 0.282869, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Hitbox" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 0.0444183, 0.00264928)

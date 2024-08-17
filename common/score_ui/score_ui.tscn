@@ -15,13 +15,19 @@ script = ExtResource("1_af650")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sptoe")
+theme_override_font_sizes/font_size = 25
 text = "Score:"
 
 [node name="Value" type="Label" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sptoe")
+theme_override_font_sizes/font_size = 25
 text = "999"

@@ -17,17 +17,23 @@ var last_footstep = null
 var speed = 0.0
 var hungry = false
 
-@onready var skin = $Skin
+@onready var skin = $Visual
 @onready var animation_tree = $AnimationTree
 @onready var footsteps_sfx = $FootstepsSfx
-@onready var belly = $Skin/Man/Armature/GeneralSkeleton/HipsBoneAttachment/Belly
+@onready var belly = $Visual/Man/Armature/GeneralSkeleton/HipsBoneAttachment/Belly
 @onready var crunch_sfx = $CrunchSfx
 @onready var hunger_timer = $HungerTimer
-@onready var died_ray_cast = $Skin/DiedRayCast
+@onready var died_ray_cast = $Visual/DiedRayCast
+@onready var vomit_ray_cast = $Visual/VomitRayCast
+@onready var vomit_particle = $Visual/Man/Armature/GeneralSkeleton/HeadBoneAttachment/VomitParticle
+
 
 func _ready():
 	speed = speed_max
 	GameManager.player_health = health
+	animation_tree.set("parameters/conditions/vomit", false)
+	animation_tree.set("parameters/conditions/died", false)
+	animation_tree.active = true
 
 func _process(delta):
 	if not hungry and GameManager.game_start:
@@ -106,13 +112,19 @@ func eat_poop(poop: Poop):
 
 		if GameManager.poop_eaten >= GameManager.max_poop_eaten:
 			GameManager.game_over = true
+			if vomit_ray_cast.is_colliding() and vomit_ray_cast.get_collider().is_in_group("wall"):
+				skin.transform.basis = skin.transform.basis.rotated(Vector3.UP, PI)
 			animation_tree.set("parameters/conditions/vomit", true)
 
 func _on_hunger_timer_timeout():
-	health = clampf(health - GameManager.hunger_rate, 0.0, 100.0)
-	GameManager.player_health = health
-	if health <= 0.0 and not GameManager.game_over:
-		GameManager.game_over = true
-		if died_ray_cast.is_colliding() and died_ray_cast.get_collider().is_in_group("wall"):
-			skin.transform.basis = skin.transform.basis.rotated(Vector3.UP, PI)
-		animation_tree.set("parameters/conditions/died", true)
+	if not GameManager.game_over:
+		health = clampf(health - GameManager.hunger_rate, 0.0, 100.0)
+		GameManager.player_health = health
+		if health <= 0.0 and not GameManager.game_over:
+			GameManager.game_over = true
+			if died_ray_cast.is_colliding() and died_ray_cast.get_collider().is_in_group("wall"):
+				skin.transform.basis = skin.transform.basis.rotated(Vector3.UP, PI)
+			animation_tree.set("parameters/conditions/died", true)
+
+func emit_vomit():
+	vomit_particle.emitting = true

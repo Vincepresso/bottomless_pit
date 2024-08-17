@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyswt0n8ipcus"]
+[gd_scene load_steps=14 format=3 uid="uid://dyswt0n8ipcus"]
 
 [ext_resource type="PackedScene" uid="uid://bfc5tgxjmwdnk" path="res://entities/player/player.tscn" id="1_h300t"]
 [ext_resource type="Material" uid="uid://bik1wraoymwxf" path="res://assets/materials/grass.tres" id="2_0b83d"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://6jshbigw6c0c" path="res://assets/materials/brick.tres" id="6_dfmvc"]
 [ext_resource type="PackedScene" uid="uid://db50in5fmx705" path="res://common/health_ui/health_ui.tscn" id="7_lhg3k"]
 [ext_resource type="PackedScene" uid="uid://b5k7di7tgogd5" path="res://common/score_ui/score_ui.tscn" id="8_87bwb"]
+[ext_resource type="PackedScene" uid="uid://bvqf8smwwpm7f" path="res://common/game_over_ui/game_over_ui.tscn" id="10_6bmme"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lxs8p"]
 panorama = ExtResource("2_44er7")
@@ -90,3 +91,5 @@ grow_horizontal = 2
 [node name="HealthUI" parent="UI" instance=ExtResource("7_lhg3k")]
 
 [node name="ScoreUI" parent="UI" instance=ExtResource("8_87bwb")]
+
+[node name="GameOverUI" parent="UI" instance=ExtResource("10_6bmme")]

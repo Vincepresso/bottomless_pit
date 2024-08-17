@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr4o3w2bdqy1c"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_0vb4n"]
+[ext_resource type="PackedScene" uid="uid://dt3wrbmng3i7w" path="res://assets/models/foods/ice_cream.glb" id="2_ex6vo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oqne6"]
+size = Vector3(1, 0.45, 0.3)
+
+[node name="IceCream" instance=ExtResource("1_0vb4n")]
+
+[node name="ice_cream" parent="Visual" index="1" instance=ExtResource("2_ex6vo")]
+transform = Transform3D(0.4, 0, 0, 0, 0.38637, -0.103528, 0, 0.103528, 0.38637, 0, -0.0347096, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 0.0995941, 0.0484867)
+shape = SubResource("BoxShape3D_oqne6")

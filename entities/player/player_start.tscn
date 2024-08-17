@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d06y11cyu4c1b"]
 
-[ext_resource type="PackedScene" uid="uid://dcjdur4u2aab8" path="res://assets/models/man.glb" id="1_d742t"]
+[ext_resource type="PackedScene" uid="uid://dcjdur4u2aab8" path="res://assets/models/man/man.glb" id="1_d742t"]
 [ext_resource type="AnimationLibrary" uid="uid://vccv2xslcju" path="res://assets/anims/humaniod.glb" id="2_nlxlo"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iclq0"]

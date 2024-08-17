@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjxwmyxtmocgf"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_jhjaq"]
+[ext_resource type="PackedScene" uid="uid://da3u2ermbcc7x" path="res://assets/models/foods/hotdog.glb" id="2_lxv8i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrgcm"]
+size = Vector3(1, 0.473206, 0.362061)
+
+[node name="Hotdog" instance=ExtResource("1_jhjaq")]
+score = 2.0
+
+[node name="hotdog" parent="Visual" index="1" instance=ExtResource("2_lxv8i")]
+transform = Transform3D(-1.31134e-08, 0.3, 5.32907e-16, -0.15, -6.55671e-09, 0.259808, 0.259808, 1.13566e-08, 0.15, 0, 0, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 7.63014e-05, -9.73046e-05)
+shape = SubResource("BoxShape3D_vrgcm")

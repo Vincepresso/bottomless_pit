@@ -1,10 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://m4eqlrlv6nv0"]
+[gd_scene load_steps=20 format=3 uid="uid://m4eqlrlv6nv0"]
 
 [ext_resource type="Script" path="res://common/spawner/spawner.gd" id="1_4f5pq"]
 [ext_resource type="PackedScene" uid="uid://bexb6nf80s4w8" path="res://entities/food/steak.tscn" id="2_ld5ch"]
 [ext_resource type="PackedScene" uid="uid://dh2jlgd7pu3nu" path="res://entities/food/sushi_nigiri.tscn" id="3_t1lt0"]
 [ext_resource type="PackedScene" uid="uid://d2lurdn16604e" path="res://entities/food/burger.tscn" id="4_3oqdv"]
+[ext_resource type="PackedScene" uid="uid://cgtx5saoiasjr" path="res://entities/food/donut.tscn" id="5_dlbif"]
 [ext_resource type="PackedScene" uid="uid://ceuw0045gctd3" path="res://entities/poop/poop.tscn" id="5_dyu6q"]
+[ext_resource type="PackedScene" uid="uid://cfylly7vowrdy" path="res://entities/food/bacon.tscn" id="6_d8cll"]
+[ext_resource type="PackedScene" uid="uid://blt1kill37pqn" path="res://entities/food/egg.tscn" id="7_e1uy4"]
+[ext_resource type="PackedScene" uid="uid://cu1hqgiaead3w" path="res://entities/food/fries.tscn" id="8_v5tkj"]
+[ext_resource type="PackedScene" uid="uid://cjxwmyxtmocgf" path="res://entities/food/hotdog.tscn" id="9_3yxa8"]
+[ext_resource type="PackedScene" uid="uid://cr4o3w2bdqy1c" path="res://entities/food/ice_cream.tscn" id="10_sahi2"]
+[ext_resource type="PackedScene" uid="uid://cdyqy2rdls3uy" path="res://entities/food/pancake.tscn" id="11_x03eo"]
+[ext_resource type="PackedScene" uid="uid://cuccc26yme0re" path="res://entities/food/pizza.tscn" id="12_glii4"]
+[ext_resource type="PackedScene" uid="uid://bwle5fqntj7wv" path="res://entities/food/soda.tscn" id="13_i4kni"]
+[ext_resource type="PackedScene" uid="uid://1jl46b5ggn1e" path="res://entities/food/sushi_roll.tscn" id="14_mcmqs"]
 
 [sub_resource type="Curve3D" id="Curve3D_j1l3a"]
 _data = {
@@ -25,7 +35,7 @@ albedo_color = Color(1.92523e-06, 0.673662, 0.641084, 1)
 [node name="Spawner" type="Path3D"]
 curve = SubResource("Curve3D_j1l3a")
 script = ExtResource("1_4f5pq")
-pantry = Array[PackedScene]([ExtResource("2_ld5ch"), ExtResource("3_t1lt0"), ExtResource("4_3oqdv")])
+pantry = Array[PackedScene]([ExtResource("2_ld5ch"), ExtResource("3_t1lt0"), ExtResource("4_3oqdv"), ExtResource("5_dlbif"), ExtResource("6_d8cll"), ExtResource("7_e1uy4"), ExtResource("8_v5tkj"), ExtResource("9_3yxa8"), ExtResource("10_sahi2"), ExtResource("11_x03eo"), ExtResource("12_glii4"), ExtResource("13_i4kni"), ExtResource("14_mcmqs")])
 poop_scene = ExtResource("5_dyu6q")
 
 [node name="SpawnPoint" type="PathFollow3D" parent="."]

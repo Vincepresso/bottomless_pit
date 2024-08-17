@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu1hqgiaead3w"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_37bgy"]
+[ext_resource type="PackedScene" uid="uid://ceouxn64j43le" path="res://assets/models/foods/fries.glb" id="2_w6orj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ss6qw"]
+size = Vector3(1, 0.394592, 0.281555)
+
+[node name="Fries" instance=ExtResource("1_37bgy")]
+
+[node name="fries" parent="Visual" index="1" instance=ExtResource("2_w6orj")]
+transform = Transform3D(-1.31134e-08, 0.3, -1.31134e-08, 0, -1.31134e-08, -0.3, -0.3, -1.31134e-08, 5.73206e-16, -0.0627787, 0, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 0.063797, 0.00072667)
+shape = SubResource("BoxShape3D_ss6qw")

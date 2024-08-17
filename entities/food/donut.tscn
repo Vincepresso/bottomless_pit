@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgtx5saoiasjr"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_7pomd"]
+[ext_resource type="PackedScene" uid="uid://vipsa4r435mx" path="res://assets/models/foods/donut.glb" id="2_gwp51"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j80pw"]
+size = Vector3(1, 0.431274, 0.438202)
+
+[node name="Donut" instance=ExtResource("1_7pomd")]
+score = 2.0
+
+[node name="donut" parent="Visual" index="1" instance=ExtResource("2_gwp51")]
+transform = Transform3D(0.267582, 0.422261, 0.00978249, -0.290974, 0.175894, 0.3666, 0.30616, -0.201884, 0.339866, 0, 0, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, -0.00178527, 0.0027561)
+shape = SubResource("BoxShape3D_j80pw")

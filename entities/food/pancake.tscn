@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdyqy2rdls3uy"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_3veev"]
+[ext_resource type="PackedScene" uid="uid://bk72y5exfeg2v" path="res://assets/models/foods/pancake.glb" id="2_e30u1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjn4n"]
+size = Vector3(1, 0.405029, 0.490112)
+
+[node name="Pancake" instance=ExtResource("1_3veev")]
+
+[node name="pancake" parent="Visual" index="1" instance=ExtResource("2_e30u1")]
+transform = Transform3D(0.182973, 0.237741, 0, -0.237741, 0.182973, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 0.0169525, -0.0244503)
+shape = SubResource("BoxShape3D_wjn4n")

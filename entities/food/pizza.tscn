@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuccc26yme0re"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_cqis4"]
+[ext_resource type="PackedScene" uid="uid://dj4220y1yf6w3" path="res://assets/models/foods/pizza.glb" id="2_bgvyf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qv6b"]
+size = Vector3(1, 0.43, 0.353237)
+
+[node name="Pizza" instance=ExtResource("1_cqis4")]
+score = 3.0
+
+[node name="pizza" parent="Visual" index="1" instance=ExtResource("2_bgvyf")]
+transform = Transform3D(-5.96046e-08, 0.394356, 0.0669554, 0.2, 0.0579851, -0.341523, -0.34641, 0.0334776, -0.197178, 0.0263686, -0.254936, -0.134669)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, -0.0278854, 0.0463066)
+shape = SubResource("BoxShape3D_6qv6b")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://blt1kill37pqn"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_57dgs"]
+[ext_resource type="PackedScene" uid="uid://br65rilhxdlyj" path="res://assets/models/foods/egg.glb" id="2_ax8km"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdn52"]
+size = Vector3(1, 0.42, 0.42)
+
+[node name="Egg" instance=ExtResource("1_57dgs")]
+
+[node name="OmniLight3D" parent="Visual" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0104665, 0, 0)
+
+[node name="egg" parent="Visual" index="1" instance=ExtResource("2_ax8km")]
+transform = Transform3D(-0.0234647, 0.399311, 0, -0.399311, -0.0234647, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, -0.0360565, -0.0136471)
+shape = SubResource("BoxShape3D_qdn52")

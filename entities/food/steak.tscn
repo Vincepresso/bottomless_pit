@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_rrxg0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e8f5m"]
-size = Vector3(1, 0.581787, 0.401001)
+size = Vector3(1, 0.534607, 0.362823)
 
 [node name="Steak" instance=ExtResource("1_rrxg0")]
 score = 3.0
 
 [node name="steak" parent="Visual" index="0" instance=ExtResource("1_lyrgv")]
-transform = Transform3D(-1.31134e-08, -0.3, 1.31134e-08, 0, -1.31134e-08, -0.3, 0.3, -1.31134e-08, 5.73206e-16, 0, 0, 0)
+transform = Transform3D(-1.22392e-08, -0.28, 1.22392e-08, 0, -1.22392e-08, -0.28, 0.28, -1.22392e-08, 5.34992e-16, 0, 0, 0)
 
 [node name="Hitbox" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 0.0262299, 0.0823612)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 0.0235749, 0.0782261)
 shape = SubResource("BoxShape3D_e8f5m")

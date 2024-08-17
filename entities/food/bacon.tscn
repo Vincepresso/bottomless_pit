@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfylly7vowrdy"]
+
+[ext_resource type="PackedScene" uid="uid://ccockprdy2cof" path="res://entities/food/food.tscn" id="1_o8oy8"]
+[ext_resource type="PackedScene" uid="uid://6ali5lf0mh63" path="res://assets/models/foods/bacon.glb" id="2_cavqw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nye0a"]
+size = Vector3(1, 0.4, 0.4)
+
+[node name="Bacon" instance=ExtResource("1_o8oy8")]
+
+[node name="bacon" parent="Visual" index="1" instance=ExtResource("2_cavqw")]
+transform = Transform3D(-1.96701e-08, 0.45, 0, -0.318198, -1.39089e-08, -0.318198, -0.318198, -1.39089e-08, 0.318198, 0, 0, 0.118346)
+
+[node name="Hitbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259399, 0.021988, 0.075964)
+shape = SubResource("BoxShape3D_nye0a")
