@@ -1,18 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://d06y11cyu4c1b"]
+[gd_scene load_steps=9 format=3 uid="uid://d06y11cyu4c1b"]
 
 [ext_resource type="PackedScene" uid="uid://dcjdur4u2aab8" path="res://assets/models/man.glb" id="1_d742t"]
 [ext_resource type="AnimationLibrary" uid="uid://vccv2xslcju" path="res://assets/anims/humaniod.glb" id="2_nlxlo"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0xwth"]
-animation = &"humaniod/idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iclq0"]
+animation = &"humaniod/idle_happy"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_73a62"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0esdh"]
+animation = &"humaniod/idle_sad"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ubru"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_opqdy"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"sad"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3h5r6"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"happy"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_i1q2d"]
-states/idle/node = SubResource("AnimationNodeAnimation_0xwth")
-states/idle/position = Vector2(333, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_73a62")]
+states/happy/node = SubResource("AnimationNodeAnimation_iclq0")
+states/happy/position = Vector2(367, 100)
+states/sad/node = SubResource("AnimationNodeAnimation_0esdh")
+states/sad/position = Vector2(499, 100)
+transitions = ["Start", "happy", SubResource("AnimationNodeStateMachineTransition_2ubru"), "happy", "sad", SubResource("AnimationNodeStateMachineTransition_opqdy"), "sad", "happy", SubResource("AnimationNodeStateMachineTransition_3h5r6")]
 
 [node name="PlayerStart" type="Node3D"]
 
@@ -32,3 +47,5 @@ autoplay = "humaniod/RESET"
 root_node = NodePath("../Visual/Man")
 tree_root = SubResource("AnimationNodeStateMachine_i1q2d")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/happy = false
+parameters/conditions/sad = false
