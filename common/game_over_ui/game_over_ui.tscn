@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvqf8smwwpm7f"]
 
-[ext_resource type="Texture2D" uid="uid://d2qrhxdb22i7a" path="res://assets/images/gui/gameover_bg.png" id="1_afs4k"]
+[ext_resource type="Texture2D" uid="uid://d2qrhxdb22i7a" path="res://assets/images/gameover_bg.png" id="1_afs4k"]
 [ext_resource type="Script" path="res://common/game_over_ui/game_over_ui.gd" id="1_o3clp"]
 [ext_resource type="FontFile" uid="uid://t6t70xkkuqh5" path="res://assets/fonts/Matemasie-Regular.ttf" id="2_o6io1"]
 [ext_resource type="PackedScene" uid="uid://b5k7di7tgogd5" path="res://common/score_ui/score_ui.tscn" id="3_l5jk0"]

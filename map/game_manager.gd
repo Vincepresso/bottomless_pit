@@ -1,5 +1,6 @@
 extends Node
 
+# playeground butler
 var game_start = true
 var game_over = false
 var paused = false
@@ -13,3 +14,10 @@ var player_belly_scale = 0.0
 var player_health = 0.0
 var poop_spawn_rate = 0.0
 var hunger_rate = 5.0
+
+# start_scene butler
+var splash_screen_done = false
+var player_start_sad = false
+var player_start_dance = false
+var main_menu_start_pressed = false
+var main_menu_quit_pressed = false

@@ -1,0 +1,286 @@
+[gd_scene load_steps=18 format=3 uid="uid://dxyiwtyaqwjd0"]
+
+[ext_resource type="Script" path="res://common/main_menu/main_menu.gd" id="1_3nt7p"]
+[ext_resource type="Texture2D" uid="uid://dnhm7rn1ynme1" path="res://assets/images/button_locked.png" id="1_7ndb7"]
+[ext_resource type="Texture2D" uid="uid://fpdhk06t63oh" path="res://assets/images/button_normal.png" id="1_17aga"]
+[ext_resource type="FontFile" uid="uid://t6t70xkkuqh5" path="res://assets/fonts/Matemasie-Regular.ttf" id="2_gpuhw"]
+[ext_resource type="Texture2D" uid="uid://dwd6ypn3xquf1" path="res://assets/images/button_hover.png" id="2_vu2wa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flhtj"]
+texture = ExtResource("1_17aga")
+texture_margin_left = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3eaik"]
+texture = ExtResource("2_vu2wa")
+texture_margin_left = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_me1yk"]
+texture = ExtResource("1_7ndb7")
+texture_margin_left = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmt3d"]
+
+[sub_resource type="Animation" id="Animation_7rsmf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuContainer/StartButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuContainer/QuitButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuContainer/TitleLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuContainer/StartButton:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuContainer/QuitButton:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_geyh3"]
+resource_name = "fade_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuContainer/StartButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuContainer/QuitButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuContainer/TitleLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuContainer/StartButton:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuContainer/QuitButton:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3yq84"]
+_data = {
+"RESET": SubResource("Animation_7rsmf"),
+"fade_in": SubResource("Animation_geyh3")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_anay2"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bwjrl"]
+animation = &"fade_in"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hs0h1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h2fm0"]
+advance_mode = 2
+advance_condition = &"fade_in"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hdtbm"]
+states/RESET/node = SubResource("AnimationNodeAnimation_anay2")
+states/RESET/position = Vector2(317, 100)
+states/fade_in/node = SubResource("AnimationNodeAnimation_bwjrl")
+states/fade_in/position = Vector2(432, 100)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_hs0h1"), "RESET", "fade_in", SubResource("AnimationNodeStateMachineTransition_h2fm0")]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_3nt7p")
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -186.0
+offset_right = 562.0
+offset_bottom = 292.0
+scale = Vector2(0.6, 0.6)
+theme_override_constants/separation = 85
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MenuContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_gpuhw")
+theme_override_font_sizes/font_size = 75
+text = "Bottomless Pit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="MenuContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_gpuhw")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_flhtj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3eaik")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_me1yk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_flhtj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gmt3d")
+disabled = true
+text = "Play"
+icon_alignment = 1
+
+[node name="QuitButton" type="Button" parent="MenuContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_gpuhw")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_flhtj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3eaik")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_me1yk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_flhtj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gmt3d")
+disabled = true
+text = "Quit"
+icon_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3yq84")
+}
+autoplay = "fade_in"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_hdtbm")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/fade_in = false
+
+[connection signal="mouse_entered" from="MenuContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuContainer/StartButton" to="." method="_on_start_button_mouse_exited"]
+[connection signal="pressed" from="MenuContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuContainer/QuitButton" to="." method="_on_quit_button_mouse_exited"]
+[connection signal="pressed" from="MenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
