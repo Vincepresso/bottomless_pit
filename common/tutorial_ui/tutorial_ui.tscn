@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbftqwn22w0ci"]
+
+[ext_resource type="FontFile" uid="uid://t6t70xkkuqh5" path="res://assets/fonts/Matemasie-Regular.ttf" id="1_a6vk1"]
+[ext_resource type="Script" path="res://common/tutorial_ui/tutorial_ui.gd" id="2_p7504"]
+
+[sub_resource type="Animation" id="Animation_1erlg"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pfs30"]
+resource_name = "dissolve"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qaktk"]
+_data = {
+"RESET": SubResource("Animation_1erlg"),
+"fade": SubResource("Animation_pfs30")
+}
+
+[node name="TutorialUI" type="Label"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_a6vk1")
+theme_override_font_sizes/font_size = 25
+text = "Move with A and D keys or left and right arrows
+----------------------------------------
+eat food and avoid poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_p7504")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qaktk")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dxyiwtyaqwjd0"]
+[gd_scene load_steps=19 format=3 uid="uid://dxyiwtyaqwjd0"]
 
 [ext_resource type="Script" path="res://common/main_menu/main_menu.gd" id="1_3nt7p"]
 [ext_resource type="Texture2D" uid="uid://dnhm7rn1ynme1" path="res://assets/images/button_locked.png" id="1_7ndb7"]
 [ext_resource type="Texture2D" uid="uid://fpdhk06t63oh" path="res://assets/images/button_normal.png" id="1_17aga"]
 [ext_resource type="FontFile" uid="uid://t6t70xkkuqh5" path="res://assets/fonts/Matemasie-Regular.ttf" id="2_gpuhw"]
+[ext_resource type="Texture2D" uid="uid://waglbm0wcll7" path="res://assets/images/splash_logo.png" id="2_n8py3"]
 [ext_resource type="Texture2D" uid="uid://dwd6ypn3xquf1" path="res://assets/images/button_hover.png" id="2_vu2wa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flhtj"]
@@ -88,6 +89,32 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("logo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_start_scene_ready"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_geyh3"]
 resource_name = "fade_in"
@@ -152,6 +179,35 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, true, false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("logo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_start_scene_ready"
+}, {
+"args": [true],
+"method": &"set_start_scene_ready"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3yq84"]
 _data = {
@@ -195,6 +251,16 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_3nt7p")
+
+[node name="logo" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 58.0
+offset_top = -224.0
+offset_right = 933.0
+offset_bottom = 76.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_n8py3")
 
 [node name="MenuContainer" type="VBoxContainer" parent="."]
 layout_mode = 0

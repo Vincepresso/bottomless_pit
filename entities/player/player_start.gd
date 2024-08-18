@@ -19,28 +19,30 @@ func _ready():
 	bye_sfx.autoplay = false
 
 func _process(delta):
-	if GameManager.player_start_sad and not animation_tree.get("parameters/conditions/sad"):
-		animation_tree.set("parameters/conditions/sad", true)
-		animation_tree.set("parameters/conditions/happy", false)
-		animation_tree.set("parameters/conditions/dance", false)
+	if GameManager.start_scene_ready:
 
-	if not GameManager.player_start_sad and not animation_tree.get("parameters/conditions/happy"):
-		animation_tree.set("parameters/conditions/happy", true)
-		animation_tree.set("parameters/conditions/sad", false)
-		animation_tree.set("parameters/conditions/dance", false)
+		if GameManager.player_start_sad and not animation_tree.get("parameters/conditions/sad"):
+			animation_tree.set("parameters/conditions/sad", true)
+			animation_tree.set("parameters/conditions/happy", false)
+			animation_tree.set("parameters/conditions/dance", false)
 
-	if GameManager.player_start_dance and not animation_tree.get("parameters/conditions/dance"):
-		animation_tree.set("parameters/conditions/dance", true)
-		animation_tree.set("parameters/conditions/happy", false)
-		animation_tree.set("parameters/conditions/sad", false)
+		if not GameManager.player_start_sad and not animation_tree.get("parameters/conditions/happy"):
+			animation_tree.set("parameters/conditions/happy", true)
+			animation_tree.set("parameters/conditions/sad", false)
+			animation_tree.set("parameters/conditions/dance", false)
 
-	if GameManager.main_menu_start_pressed and not lets_go_sfx.playing and not lets_go_sfx_have_played:
-		lets_go_sfx_have_played = true
-		lets_go_sfx.play()
+		if GameManager.player_start_dance and not animation_tree.get("parameters/conditions/dance"):
+			animation_tree.set("parameters/conditions/dance", true)
+			animation_tree.set("parameters/conditions/happy", false)
+			animation_tree.set("parameters/conditions/sad", false)
 
-	if GameManager.main_menu_quit_pressed and not bye_sfx.playing and not bye_sfx_have_played:
-		bye_sfx_have_played = true
-		bye_sfx.play()
+		if GameManager.main_menu_start_pressed and not lets_go_sfx.playing and not lets_go_sfx_have_played:
+			lets_go_sfx_have_played = true
+			lets_go_sfx.play()
+
+		if GameManager.main_menu_quit_pressed and not bye_sfx.playing and not bye_sfx_have_played:
+			bye_sfx_have_played = true
+			bye_sfx.play()
 
 func play_clap_sfx():
 	if not clap_sfx.playing:

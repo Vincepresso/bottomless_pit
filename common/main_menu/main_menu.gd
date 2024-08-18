@@ -12,21 +12,29 @@ func _process(delta):
 		animation_tree.set("parameters/conditions/fade_in", true)
 
 func _on_start_button_pressed():
-	print("Start Button is Pressed")
 	GameManager.main_menu_start_pressed = true
+	SceneTransition.change_scene(GameManager.PLAYGROUND_SCENE)
 
 func _on_quit_button_pressed():
-	print("Quit Button is Pressed")
 	GameManager.main_menu_quit_pressed = true
+	await get_tree().create_timer(1.0).timeout
+	get_tree().quit()
 
 func _on_start_button_mouse_entered():
-	GameManager.player_start_dance = true
+	if GameManager.start_scene_ready:
+		GameManager.player_start_dance = true
 
 func _on_start_button_mouse_exited():
-	GameManager.player_start_dance = false
+	if GameManager.start_scene_ready:
+		GameManager.player_start_dance = false
 
 func _on_quit_button_mouse_entered():
-	GameManager.player_start_sad = true
+	if GameManager.start_scene_ready:
+		GameManager.player_start_sad = true
 
 func _on_quit_button_mouse_exited():
-	GameManager.player_start_sad = false
+	if GameManager.start_scene_ready:
+		GameManager.player_start_sad = false
+
+func set_start_scene_ready(value):
+	GameManager.start_scene_ready = value

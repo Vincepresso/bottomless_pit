@@ -1,12 +1,107 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvqf8smwwpm7f"]
+[gd_scene load_steps=16 format=3 uid="uid://bvqf8smwwpm7f"]
 
 [ext_resource type="Texture2D" uid="uid://d2qrhxdb22i7a" path="res://assets/images/gameover_bg.png" id="1_afs4k"]
 [ext_resource type="Script" path="res://common/game_over_ui/game_over_ui.gd" id="1_o3clp"]
 [ext_resource type="FontFile" uid="uid://t6t70xkkuqh5" path="res://assets/fonts/Matemasie-Regular.ttf" id="2_o6io1"]
 [ext_resource type="PackedScene" uid="uid://b5k7di7tgogd5" path="res://common/score_ui/score_ui.tscn" id="3_l5jk0"]
+[ext_resource type="Texture2D" uid="uid://fpdhk06t63oh" path="res://assets/images/button_normal.png" id="5_xtu6j"]
+[ext_resource type="Texture2D" uid="uid://dwd6ypn3xquf1" path="res://assets/images/button_hover.png" id="6_v0u7r"]
+[ext_resource type="Texture2D" uid="uid://dnhm7rn1ynme1" path="res://assets/images/button_locked.png" id="7_ihsln"]
 
-[node name="GameOverUI" type="CenterContainer"]
-visible = false
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2fi7"]
+texture = ExtResource("5_xtu6j")
+texture_margin_left = 50.0
+texture_margin_top = 20.0
+texture_margin_right = 50.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_axk88"]
+texture = ExtResource("6_v0u7r")
+texture_margin_left = 50.0
+texture_margin_top = 20.0
+texture_margin_right = 50.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l67wd"]
+texture = ExtResource("7_ihsln")
+texture_margin_left = 50.0
+texture_margin_top = 20.0
+texture_margin_right = 50.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_at3af"]
+texture = ExtResource("5_xtu6j")
+texture_margin_left = 50.0
+texture_margin_top = 20.0
+texture_margin_right = 50.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixcun"]
+
+[sub_resource type="Animation" id="Animation_senxg"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qque4"]
+resource_name = "transition"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_states"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxh3b"]
+_data = {
+"RESET": SubResource("Animation_senxg"),
+"transition": SubResource("Animation_qque4")
+}
+
+[node name="GameOverUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o3clp")
+
+[node name="GameOverContainer" type="CenterContainer" parent="."]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -15,17 +110,17 @@ offset_top = -150.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_o3clp")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="GameOverContainer"]
 modulate = Color(0.482353, 0.482353, 0.482353, 0.313726)
 layout_mode = 2
 texture = ExtResource("1_afs4k")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverContainer"]
 layout_mode = 2
+theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="GameOverContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -36,11 +131,52 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="ScoreUI" parent="VBoxContainer" instance=ExtResource("3_l5jk0")]
+[node name="ScoreUI" parent="GameOverContainer/VBoxContainer" instance=ExtResource("3_l5jk0")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="RetryButton" type="Button" parent="VBoxContainer"]
+[node name="RetryButton" type="Button" parent="GameOverContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_o6io1")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_q2fi7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_axk88")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l67wd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_at3af")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ixcun")
 text = "Retry"
+icon_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Transition" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_afs4k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cxh3b")
+}
+
+[connection signal="pressed" from="GameOverContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

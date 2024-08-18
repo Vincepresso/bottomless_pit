@@ -5,11 +5,11 @@
 [ext_resource type="AudioStream" uid="uid://dietkdoa810mk" path="res://assets/music/cartoon_bgm.wav" id="2_5ly5r"]
 [ext_resource type="Texture2D" uid="uid://bkq78dhg4pbi3" path="res://assets/images/skybox.png" id="2_44er7"]
 [ext_resource type="PackedScene" uid="uid://m4eqlrlv6nv0" path="res://common/spawner/spawner.tscn" id="2_nddl6"]
-[ext_resource type="PackedScene" uid="uid://djvgknl7v1pl" path="res://common/debug_ui/debug_ui.tscn" id="4_gaknf"]
 [ext_resource type="Material" uid="uid://6jshbigw6c0c" path="res://assets/materials/brick.tres" id="6_dfmvc"]
 [ext_resource type="PackedScene" uid="uid://db50in5fmx705" path="res://common/health_ui/health_ui.tscn" id="7_lhg3k"]
 [ext_resource type="PackedScene" uid="uid://b5k7di7tgogd5" path="res://common/score_ui/score_ui.tscn" id="8_87bwb"]
 [ext_resource type="PackedScene" uid="uid://bvqf8smwwpm7f" path="res://common/game_over_ui/game_over_ui.tscn" id="10_6bmme"]
+[ext_resource type="PackedScene" uid="uid://bbftqwn22w0ci" path="res://common/tutorial_ui/tutorial_ui.tscn" id="11_8f8iv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lxs8p"]
 panorama = ExtResource("2_44er7")
@@ -80,20 +80,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 
 [node name="Control" type="Control" parent="UI"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DebugUI" parent="UI/Control" instance=ExtResource("4_gaknf")]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 443.0
-offset_right = 632.0
-offset_bottom = 212.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HealthUI" parent="UI/Control" instance=ExtResource("7_lhg3k")]
 layout_mode = 0
@@ -103,11 +94,17 @@ offset_bottom = 294.0
 
 [node name="ScoreUI" parent="UI/Control" instance=ExtResource("8_87bwb")]
 layout_mode = 1
-offset_left = 601.0
-offset_right = 740.0
+offset_left = -163.0
+offset_top = 20.0
+offset_right = -24.0
+offset_bottom = 60.0
 
 [node name="GameOverUI" parent="UI/Control" instance=ExtResource("10_6bmme")]
 layout_mode = 1
-offset_top = 130.0
-offset_right = 760.0
-offset_bottom = 430.0
+
+[node name="TutorialUI" parent="UI/Control" instance=ExtResource("11_8f8iv")]
+layout_mode = 1
+offset_left = -213.5
+offset_top = -26.5
+offset_right = 213.5
+offset_bottom = 26.5
