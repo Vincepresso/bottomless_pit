@@ -15,6 +15,7 @@ var player_belly_scale = 0.0
 var player_health = 0.0
 var poop_spawn_rate = 0.0
 var hunger_rate = 5.0
+var retry = false
 
 func reset_states():
 	game_start = false
@@ -30,6 +31,7 @@ func reset_states():
 	player_health = 0.0
 	poop_spawn_rate = 0.0
 	hunger_rate = 5.0
+	retry = false
 
 # start_scene butler
 const START_SCENE = "res://map/start_scene.tscn"

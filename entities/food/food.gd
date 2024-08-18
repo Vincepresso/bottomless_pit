@@ -3,7 +3,7 @@ class_name Food extends Area3D
 @export var min_speed = 1.0
 @export var max_speed = 3.0
 @export var score = 0.0
-@export var health = 10.0
+@export var health = 15.0
 
 var speed = 0.0
 

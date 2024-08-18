@@ -22,6 +22,7 @@ func _on_timer_timeout():
 func _on_retry_button_pressed():
 	retry_button.disabled = true
 	animation_player.play("transition")
+	GameManager.retry = true
 	await animation_player.animation_finished
 	get_tree().reload_current_scene()
 

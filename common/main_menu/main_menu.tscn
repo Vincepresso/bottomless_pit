@@ -253,6 +253,7 @@ size_flags_vertical = 4
 script = ExtResource("1_3nt7p")
 
 [node name="logo" type="TextureRect" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 58.0
